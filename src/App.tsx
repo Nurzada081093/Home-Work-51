@@ -11,7 +11,26 @@ const App = () => {
         );
     });
 
-    const getNewNumbers = () => {};
+    const getNewNumbers = () => {
+
+        const result:number[] = [];
+
+        const getRandomNumbersArray= (min:number, max:number, count:number) => {
+            while (result.length < count) {
+                const randomNumber:number = Math.floor(Math.random() * (max - min + 1)) + min;
+                if (result.indexOf(randomNumber) === -1) {
+                    result.push(randomNumber);
+                }
+            }
+
+            return result;
+        };
+
+        getRandomNumbersArray(5, 36, 5);
+        const newArray: number[] = result.sort((a:number, b:number) => a - b);
+
+        setNumbers(newArray);
+    };
 
     return (
         <div className="container">
